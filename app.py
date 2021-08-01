@@ -1,5 +1,6 @@
 from flask import Flask, render_template , url_for , request, redirect
 from flask_sqlalchemy import SQLAlchemy
+import sqlite3, csv
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pokedex.db'
@@ -18,13 +19,22 @@ class Pokemon(db.Model):
     defense = db.Column(db.Integer,nullable=False)
     spatk = db.Column(db.Integer,nullable=False)
     spdef = db.Column(db.Integer,nullable=False)
-    generation = db.Column(db.Integer,nullable=False)
+    speed = db.Column(db.Integer,nullable=False)
+    gen = db.Column(db.Integer,nullable=False)
     legend = db.Column(db.Boolean,default=False)
 
     def __repr__(self):
         return '<Pokemon %r>' % self.id
 
+# Importación de datos de pokemon.csv
 
+con = sqlite3.connect("pokedex.db")
+cur = con.cursor()
+
+pk_file = open("pokemon.csv")
+new_pokemons = csv.reader(pk_file)
+cur.executemany("INSERT INTO pokemon (num,name,typeu,typed,total,hp,attack,defense,spatk,spdef,speed,gen,legend) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", new_pokemons)
+con.commit()
 
 # Ruta Index 
 @app.route('/', methods=['POST','GET'])
