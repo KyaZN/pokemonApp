@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Pokedex</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>List of Pokemons</h1>
+
+    <table id="pokemon_tb">
+        <tr class="header_tr">
+            <th>#</th>
+            <th>Name</th>
+            <th>Type 1</th>
+            <th>Type 2</th>
+            <th>Total</th>
+            <th>HP</th>
+            <th>Attack</th>
+            <th>Defense</th>
+            <th>Sp. Atk</th>
+            <th>Sp. Def</th>
+            <th>Speed</th>
+            <th>Generation</th>
+            <th>Legendary</th>
+            <th>Options</th>
+        </tr>
+        <!-- {% for poke in pokemons %} -->
+        <tr class="content_tr">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <a href="#">Delete</a>
+                <br>
+                <a href="#">Update</a>
+            </td>
+        </tr>
+        <!-- {% endfor %} -->
+    </table>
+</div>
+
+{% endblock %}
