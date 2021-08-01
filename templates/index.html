@@ -25,28 +25,29 @@
             <th>Legendary</th>
             <th>Options</th>
         </tr>
-        <!-- {% for poke in pokemons %} -->
+        {% for pokemon in pokemons %}
         <tr class="content_tr">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ pokemon.num }}</td>
+            <td>{{ pokemon.name }}</td>
+            <td>{{ pokemon.typeu }}</td>
+            <td>{{ pokemon.typed }}</td>
+            <td>{{ pokemon.total }}</td>
+            <td>{{ pokemon.hp }}</td>
+            <td>{{ pokemon.attack }}</td>
+            <td>{{ pokemon.defense }}</td>
+            <td>{{ pokemon.spatk }}</td>
+            <td>{{ pokemon.spdef }}</td>
+            <td>{{ pokemon.generation }}</td>
+            <td>{{ pokemon.legend }}</td>
+            
             <td>
                 <a href="#">Delete</a>
                 <br>
                 <a href="#">Update</a>
             </td>
         </tr>
-        <!-- {% endfor %} -->
+        {% endfor %}
+
     </table>
 </div>
 
