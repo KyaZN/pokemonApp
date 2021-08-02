@@ -73,11 +73,11 @@ def update(id):
         pokemon_to_update.speed = request.form['speed']
         pokemon_to_update.gen = request.form['gen']
 
-        # try:
-        db.session.commit()
-        return redirect('/')
-        # except:
-            # return 'There was an issue updating you pokemon'
+        try:
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'There was an issue updating you pokemon'
 
     else:
         return render_template('update.html', pokemon_to_update = pokemon_to_update)

@@ -9,51 +9,57 @@
     <h1>List of Pokemons</h1>
 
     {% if pokemons|length < 1 %}
-        <form action="/import/" method="POST">
-            <button name="importCSV" type="submit">Importar Pokemons</button>
-            <p>{{ forward_message }} </p>
-        </form>
+        <div class="content_import">
+            <form action="/import/" method="POST">
+                <p>No se encuentran registros de pokemons, importalos para poder verlos</p>
+                <button name="importCSV" type="submit">Importar Pokemons</button>
+            </form>
+        </div>
     {% else %}
 
-    <table id="pokemon_tb">
-        <tr class="header_tr">
-            <th>#</th>
-            <th>Name</th>
-            <th>Type 1</th>
-            <th>Type 2</th>
-            <th>Total</th>
-            <th>HP</th>
-            <th>Attack</th>
-            <th>Defense</th>
-            <th>Sp. Atk</th>
-            <th>Sp. Def</th>
-            <th>Speed</th>
-            <th>Generation</th>
-            <th>Legendary</th>
-            <th>Options</th>
-        </tr>
+    <table id="pokemon_tb" class="table-sortable">
+        <thead>
+            <tr class="header_tr">
+                <th>#</th>
+                <th>Name</th>
+                <th>Type 1</th>
+                <th>Type 2</th>
+                <th>Total</th>
+                <th>HP</th>
+                <th>Attack</th>
+                <th>Defense</th>
+                <th>Sp. Atk</th>
+                <th>Sp. Def</th>
+                <th>Speed</th>
+                <th>Generation</th>
+                <th>Legendary</th>
+                <th>Options</th>
+            </tr>
+        </thead>
         {% for pokemon in pokemons %}
-        <tr class="content_tr">
-            <td>{{ pokemon.num }}</td>
-            <td>{{ pokemon.name }}</td>
-            <td>{{ pokemon.typeu }}</td>
-            <td>{{ pokemon.typed }}</td>
-            <td>{{ pokemon.total }}</td>
-            <td>{{ pokemon.hp }}</td>
-            <td>{{ pokemon.attack }}</td>
-            <td>{{ pokemon.defense }}</td>
-            <td>{{ pokemon.spatk }}</td>
-            <td>{{ pokemon.spdef }}</td>
-            <td>{{ pokemon.speed }}</td>
-            <td>{{ pokemon.gen }}</td>
-            <td>{{ pokemon.legend }}</td>
-            
-            <td>
-                <a href="/delete/{{pokemon.id}}">Delete</a>
-                <br>
-                <a href="/update/{{pokemon.id}}">Update</a>
-            </td>
-        </tr>
+        <tbody>
+            <tr class="content_tr">
+                <td>{{ pokemon.num }}</td>
+                <td>{{ pokemon.name }}</td>
+                <td>{{ pokemon.typeu }}</td>
+                <td>{{ pokemon.typed }}</td>
+                <td>{{ pokemon.total }}</td>
+                <td>{{ pokemon.hp }}</td>
+                <td>{{ pokemon.attack }}</td>
+                <td>{{ pokemon.defense }}</td>
+                <td>{{ pokemon.spatk }}</td>
+                <td>{{ pokemon.spdef }}</td>
+                <td>{{ pokemon.speed }}</td>
+                <td>{{ pokemon.gen }}</td>
+                <td>{{ pokemon.legend }}</td>
+                
+                <td>
+                    <a href="/delete/{{pokemon.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{pokemon.id}}">Update</a>
+                </td>
+            </tr>
+        </tbody>
         {% endfor %}
 
     </table>
