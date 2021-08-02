@@ -42,7 +42,7 @@ def import_csv():
         call(['python','import_csv.py'])
         return redirect('/')
     else:
-        pass
+        return 'There was an issue importing data'
 
 @app.route('/delete/<int:id>')
 def delete(id):
@@ -54,6 +54,35 @@ def delete(id):
         return redirect('/')
     except:
         return 'There was an issue deleting your pokemon'
+
+@app.route('/update/<int:id>', methods = ['GET','POST'])
+def update(id):
+    pokemon_to_update = Pokemon.query.get_or_404(id)
+
+    if request.method == 'POST':
+        pokemon_to_update.num = request.form['num']
+        pokemon_to_update.name = request.form['name']
+        pokemon_to_update.typeu = request.form['typeu']
+        pokemon_to_update.typed = request.form['typed']
+        pokemon_to_update.total = request.form['total']
+        pokemon_to_update.hp = request.form['hp']
+        pokemon_to_update.attack = request.form['attack']
+        pokemon_to_update.defense = request.form['defense']
+        pokemon_to_update.spatk = request.form['spatk']
+        pokemon_to_update.spdef = request.form['spdef']
+        pokemon_to_update.speed = request.form['speed']
+        pokemon_to_update.gen = request.form['gen']
+
+        # try:
+        db.session.commit()
+        return redirect('/')
+        # except:
+            # return 'There was an issue updating you pokemon'
+
+    else:
+        return render_template('update.html', pokemon_to_update = pokemon_to_update)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
