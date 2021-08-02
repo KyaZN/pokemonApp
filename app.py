@@ -1,6 +1,6 @@
 from flask import Flask, render_template , url_for , request, redirect
 from flask_sqlalchemy import SQLAlchemy
-import sqlite3, csv
+from subprocess import call
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pokedex.db'
@@ -21,20 +21,10 @@ class Pokemon(db.Model):
     spdef = db.Column(db.Integer,nullable=False)
     speed = db.Column(db.Integer,nullable=False)
     gen = db.Column(db.Integer,nullable=False)
-    legend = db.Column(db.Boolean,default=False)
+    legend = db.Column(db.Boolean)
 
     def __repr__(self):
         return '<Pokemon %r>' % self.id
-
-# Importación de datos de pokemon.csv
-
-con = sqlite3.connect("pokedex.db")
-cur = con.cursor()
-
-pk_file = open("pokemon.csv")
-new_pokemons = csv.reader(pk_file)
-cur.executemany("INSERT INTO pokemon (num,name,typeu,typed,total,hp,attack,defense,spatk,spdef,speed,gen,legend) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", new_pokemons)
-con.commit()
 
 # Ruta Index 
 @app.route('/', methods=['POST','GET'])
@@ -45,6 +35,25 @@ def index():
     else:
         pokemons = Pokemon.query.all()
         return render_template('index.html', pokemons = pokemons)
+
+@app.route('/import/', methods=['POST'])
+def import_csv():
+    if request.method == 'POST':
+        call(['python','import_csv.py'])
+        return redirect('/')
+    else:
+        pass
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    pokemon_to_delete = Pokemon.query.get_or_404(id)
+
+    try:
+        db.session.delete(pokemon_to_delete)
+        db.session.commit()
+        return redirect('/')
+    except:
+        return 'There was an issue deleting your pokemon'
 
 if __name__ == "__main__":
     app.run(debug=True)

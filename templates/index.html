@@ -8,6 +8,13 @@
 <div class="content">
     <h1>List of Pokemons</h1>
 
+    {% if pokemons|length < 1 %}
+        <form action="/import/" method="POST">
+            <button name="importCSV" type="submit">Importar Pokemons</button>
+            <p>{{ forward_message }} </p>
+        </form>
+    {% else %}
+
     <table id="pokemon_tb">
         <tr class="header_tr">
             <th>#</th>
@@ -42,7 +49,7 @@
             <td>{{ pokemon.legend }}</td>
             
             <td>
-                <a href="#">Delete</a>
+                <a href="/delete/{{pokemon.id}}">Delete</a>
                 <br>
                 <a href="#">Update</a>
             </td>
@@ -50,6 +57,8 @@
         {% endfor %}
 
     </table>
+
+    {% endif %}
 </div>
 
 {% endblock %}

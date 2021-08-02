@@ -30,8 +30,8 @@ Notes:
 Phases:
 1. Creating basic elements HTML
 2. Create the model for SQLite DB
-3. Generate Functionality to objects (CRUD)
-4. Generate process to import from csv to DB
+3. Generate process to import from csv to DB
+4. Generate Functionality to objects (CRUD)
 5. Adding plus funtionality
 6. Enhance design
 7. Enjoy it!
