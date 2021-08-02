@@ -4,6 +4,7 @@ body {
 }
 
 body h1 {
+  margin-top: 15px;
   font-family: sans-serif;
   font-size: 2em;
   text-align: center;
@@ -16,7 +17,7 @@ body .content_import {
 
 body table {
   width: 70vw;
-  margin: auto;
+  margin: 25px auto;
   text-align: center;
   background-color: #ffffff;
   font-size: 0.8em;
@@ -50,17 +51,36 @@ body table tr td {
   white-space: nowrap;
 }
 
-body table tbody {
+body table .content_tr {
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-body table tbody:nth-child(2n) {
+body table .content_tr:nth-child(2n) {
   background-color: whitesmoke;
 }
 
-body table tbody:hover {
+body table .content_tr:hover {
   background-color: #ebebeb;
+}
+
+body .table-sortable th {
+  cursor: pointer;
+}
+
+body .table-sortable .th-sort-asc::after {
+  content: "\25b4";
+  margin-left: 5px;
+}
+
+body .table-sortable .th-sort-desc::after {
+  content: "\25be";
+  margin-left: 5px;
+}
+
+body .table-sortable .th-sort-asc,
+body .table-sortable .th-sort-desc {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 body .form {

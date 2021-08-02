@@ -36,8 +36,8 @@
                 <th>Options</th>
             </tr>
         </thead>
-        {% for pokemon in pokemons %}
         <tbody>
+        {% for pokemon in pokemons %}
             <tr class="content_tr">
                 <td>{{ pokemon.num }}</td>
                 <td>{{ pokemon.name }}</td>
@@ -59,9 +59,8 @@
                     <a href="/update/{{pokemon.id}}">Update</a>
                 </td>
             </tr>
-        </tbody>
         {% endfor %}
-
+        </tbody>
     </table>
 
     {% endif %}

@@ -21,6 +21,7 @@ body{
     font-family: arial,sans-serif;
 
     h1{
+        margin-top: 15px;
         font-family: sans-serif ;
         font-size: 2em;
         text-align: center;
@@ -33,7 +34,7 @@ body{
 
     table {
         width: 70vw;
-        margin: auto;
+        margin: 25px auto;
         text-align: center;
         background-color:$table-background-color;
         font-size: 0.8em;
@@ -65,7 +66,7 @@ body{
             }
         }
 
-        tbody{
+        .content_tr{
             transition: background-color 150ms ease-out;
             &:nth-child(2n) {
             background-color: $table-even-background-color;
@@ -75,6 +76,30 @@ body{
             }
         }
     }
+
+    .table-sortable {
+        
+        th{
+            cursor: pointer;
+        }
+
+        .th-sort-asc::after{
+            content: "\25b4";
+            margin-left: 5px;
+        }
+
+        .th-sort-desc::after{
+            content: "\25be";
+            margin-left: 5px;
+        }
+
+        .th-sort-asc,
+        .th-sort-desc{
+            background:  rgba(0,0,0,0.5);
+        }
+
+    }
+
 
     .form{
         background: $form-bg;
