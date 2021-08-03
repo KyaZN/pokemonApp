@@ -2,23 +2,28 @@
 
 $table-background-color : #ffffff;
 $table-header-color: #ffffff;
-$table-header-background-color :  #2f2f2f;
+$table-header-background-color :  #1c2a7d;
 $table-hover-background-color: darken($table-background-color, 8%);
 $table-even-background-color: darken($table-background-color, 4%);
 
 // Update variables
 
 $form-bg: #ffffff;
-$form-border: #2f2f2f;
-$form-shadow: #dfae4b;
-$form-focus: #6bd4b1;
-$font-size: 12pt;
-$font-face: 'Spartan';
-$font-color: #2A293E;
+$form-border: #1c2a7d;
 
 body{
-    background: lightblue;
+    background: rgb(255, 194, 41);
     font-family: arial,sans-serif;
+
+
+    .poke_banner{
+        height: 200px;
+        margin: 0 auto;
+        background-image: url('/static/css/img/poke.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;   
+    }
 
     h1{
         margin-top: 15px;
@@ -101,27 +106,37 @@ body{
     }
 
 
-    .form{
+    .update_form{
         background: $form-bg;
-        width: 70vw;
+        width: min(450px);
         font-size: 0.8em;
-        margin: 0 auto;
-        border-top: 10px solid $form-border;
-
-        .column_form{
-            float: left;
-            width: 50%;
-
-            .row_form{
-                padding:5px 20px;
-
-                input{
-                    width: 40%;
-                    margin-left: 20px;
-                    text-align: center;
-                }
-            }
+        margin: 10px auto;
+        border-top: 10px solid $form-border;  
+        
+        input,label{
+            margin: 5px 10px;
         }
+
+        #btn_submit{
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 22px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
     }
+
+    .pikachu_edit{
+        height: 300px;
+        margin: 0 auto;
+        background-image: url('/static/css/img/pikachu_writing.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;   
+    }
+
 
 }

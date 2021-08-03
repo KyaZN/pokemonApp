@@ -7,65 +7,32 @@
 {% block body %}
 <div class="content">
     <h1>Pokemon Edit</h1>
-
-    <div class="form">
-        <form action="/update/{{pokemon_to_update.id}}" method="POST">
-            <div class="column_form">
-                <div class="row_form">
-                    <label>Numero:</label>
-                    <input type="number" name="num" id="num" value="{{pokemon_to_update.num}}">
-                </div>
-                <div class="row_form">
-                    <label>Nombre:</label>
-                    <input type="text" name="name" id="name" value="{{pokemon_to_update.name}}">
-                </div>
-                <div class="row_form">
-                    <label>Tipo 1:</label>
-                    <input type="text" name="typeu" id="typeu" value="{{pokemon_to_update.typeu}}">
-                </div>
-                <div class="row_form">
-                    <label>Tipo 2:</label>
-                    <input type="text" name="typed" id="typed" value="{{pokemon_to_update.typed}}">
-                </div>
-                <div class="row_form">
-                    <label>Total:</label>
-                    <input type="number" name="total" id="total" value="{{pokemon_to_update.total}}">
-                </div>
-                <div class="row_form">
-                    <label>HP:</label>
-                    <input type="number" name="hp" id="hp" value="{{pokemon_to_update.hp}}">
-                </div>
-                <div class="row_form">
-                    <label>Ataque:</label>
-                    <input type="number" name="attack" id="attack" value="{{pokemon_to_update.attack}}">
-                </div>
-            </div>
-            <div class="column_form">
-                <div class="row_form">
-                    <label>Defensa:</label>
-                    <input type="number" name="defense" id="defense" value="{{pokemon_to_update.defense}}">
-                </div>
-                <div class="row_form">
-                    <label>Velocidad Ataque:</label>
-                    <input type="number" name="spatk" id="spatk" value="{{pokemon_to_update.spatk}}">
-                </div>
-                <div class="row_form">
-                    <label>Velocidad Defensa:</label>
-                    <input type="number" name="spdef" id="spdef" value="{{pokemon_to_update.spdef}}">
-                </div>
-                <div class="row_form">
-                    <label>Velocidad:</label>
-                    <input type="number" name="speed" id="speed" value="{{pokemon_to_update.speed}}">
-                </div>
-                <div class="row_form">
-                    <label>N Generacion:</label>
-                    <input type="number" name="gen" id="gen" value="{{pokemon_to_update.gen}}">
-                </div>
-            </div>
-            <div>
-                <input type="submit" value="Update">
-            </div>
+        <form action="/update/{{pokemon_to_update.id}}" method="POST" class="update_form">
+            <label>Numero:<input type="number" name="num" id="num" value="{{pokemon_to_update.num}}"></label>
+            <br>
+            <label>Nombre:<input type="text" name="name" id="name" value="{{pokemon_to_update.name}}"></label>
+            <br>
+            <label>Tipo 1:<input type="text" name="typeu" id="typeu" value="{{pokemon_to_update.typeu}}"></label>
+            <br>
+            <label>Tipo 2:<input type="text" name="typed" id="typed" value="{{pokemon_to_update.typed}}"></label>
+            <br>
+            <label>Total:<input type="number" name="total" id="total" value="{{pokemon_to_update.total}}"></label>
+            <br>
+            <label>HP:<input type="number" name="hp" id="hp" value="{{pokemon_to_update.hp}}"></label>
+            <br>
+            <label>Ataque:<input type="number" name="attack" id="attack" value="{{pokemon_to_update.attack}}"></label>
+            <br>
+            <label>Defensa:<input type="number" name="defense" id="defense" value="{{pokemon_to_update.defense}}"></label>
+            <br>
+            <label>Velocidad Ataque:<input type="number" name="spatk" id="spatk" value="{{pokemon_to_update.spatk}}"></label>
+            <br>
+            <label>Velocidad Defensa:<input type="number" name="spdef" id="spdef" value="{{pokemon_to_update.spdef}}"></label>
+            <br>
+            <label>Velocidad:<input type="number" name="speed" id="speed" value="{{pokemon_to_update.speed}}"></label>
+            <br>
+            <label>N Generacion:<input type="number" name="gen" id="gen" value="{{pokemon_to_update.gen}}"></label>
+            <br>
+            <input type="submit" value="Update" id="btn_submit">
         </form>
-    </div>
-</div>
+    <div class="pikachu_edit"></div>
 {% endblock %}

@@ -1,6 +1,15 @@
 body {
-  background: lightblue;
+  background: #ffc229;
   font-family: arial,sans-serif;
+}
+
+body .poke_banner {
+  height: 200px;
+  margin: 0 auto;
+  background-image: url("/static/css/img/poke.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 body h1 {
@@ -37,7 +46,7 @@ body table tr th, body table tr td {
 
 body table tr th {
   color: #ffffff;
-  background-color: #2f2f2f;
+  background-color: #1c2a7d;
   border-bottom: solid 2px #d8d8d8;
   position: -webkit-sticky;
   position: sticky;
@@ -83,26 +92,35 @@ body .table-sortable .th-sort-desc {
   background: rgba(0, 0, 0, 0.5);
 }
 
-body .form {
+body .update_form {
   background: #ffffff;
-  width: 70vw;
+  width: 450px;
   font-size: 0.8em;
-  margin: 0 auto;
-  border-top: 10px solid #2f2f2f;
+  margin: 10px auto;
+  border-top: 10px solid #1c2a7d;
 }
 
-body .form .column_form {
-  float: left;
-  width: 50%;
+body .update_form input, body .update_form label {
+  margin: 5px 10px;
 }
 
-body .form .column_form .row_form {
-  padding: 5px 20px;
-}
-
-body .form .column_form .row_form input {
-  width: 40%;
-  margin-left: 20px;
+body .update_form #btn_submit {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 10px 22px;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+body .pikachu_edit {
+  height: 300px;
+  margin: 0 auto;
+  background-image: url("/static/css/img/pikachu_writing.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 /*# sourceMappingURL=main.css.map */
