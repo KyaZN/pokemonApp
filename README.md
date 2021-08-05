@@ -14,11 +14,11 @@ Testing:
 7. Innovation
 
 Task to do : 
--   one endpoint, /pokemon
--   Allow one endpoint to be filtered / sorted with parameters
--   Develop a Python script to import the data into a (SQLite) database.
--   Add authentication (any)
--   Some form of simple test
+-   one endpoint, /pokemon (Done)
+-   Allow one endpoint to be filtered / sorted with parameters (Done)
+-   Develop a Python script to import the data into a (SQLite) database. (Done)
+-   Add authentication (any) 
+-   Some form of simple test (Done)
 
 Notes:
 -    Any library (next to flask) is allowed .
