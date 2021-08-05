@@ -50,27 +50,6 @@ resource_fieds = {
     'legend' : fields.Boolean
 }
 
-# Web Token
-
-def token_required(f):
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        token = request.args.get('token') #http://127.0.0.1:5000/route?token=alshfjfjdklsfj89549834ur
-
-        if not token:
-            return jsonify({'message' : 'Token is missing!'}), 403
-
-        try: 
-            data = jwt.decode(token, app.config['SECRET_KEY'])
-        except:
-            return jsonify({'message' : 'Token is invalid!'}), 403
-
-        return f(*args, **kwargs)
-
-    return decorated
-
-
-
 # Import - CSV a BD
 @app.route('/import/', methods=['POST'])
 def import_csv():
@@ -161,14 +140,13 @@ class PokemonSorted(Resource):
 
 @app.route('/login')
 def login():
-    auth = request.authorization
-
-    if auth and auth.password == 'pikachu':
-        token = jwt.encode({'user' : auth.username, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(seconds=15)}, app.config['SECRET_KEY'])
-
+    auth = request.authorization 
+    if auth and auth.username == 'trainer2' and auth.password == 'pokemonclub':
+        token = jwt.encode({'user' : auth.username, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, app.config['SECRET_KEY'])
         return jsonify({'token' : token})
 
-    return make_response('Could not verify!', 401, {'WWW-Authenticate' : 'Basic realm="Login Required"'})
+    return make_response('Are you a pokemon trainer?', 401, {'WWW-Authenticate' : 'Basic realm="Login Required"'})
+
 
 api.add_resource(Pokemons,"/pokemon")
 api.add_resource(PokemonSorted,"/pokemonsort/<string:parameter>")
